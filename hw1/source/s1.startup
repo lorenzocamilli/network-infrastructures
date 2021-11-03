@@ -1,0 +1,4 @@
+/etc/init.d/networking restart
+#s1 Collision domain C
+ip addr add 10.0.3.94/27 dev eth0
+ip route add default via 10.0.3.80

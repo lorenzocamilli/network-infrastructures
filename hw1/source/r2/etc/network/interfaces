@@ -1,0 +1,16 @@
+#Collision domain D
+auto eth0
+iface eth0 inet static
+	address 10.10.10.25/31
+
+#Collision domain E
+auto eth1
+iface eth1 inet static
+	address 10.10.10.28/31
+
+#Collision domain F
+auto eth2
+iface eth2 inet static
+	address 10.10.10.26/31
+
+

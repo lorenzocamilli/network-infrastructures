@@ -1,4 +1,0 @@
-#r1 Collision domain A
-/etc/init.d/networking restart
-/etc/init.d/isc-dhcp-server start
-ip route add default via 10.10.10.25

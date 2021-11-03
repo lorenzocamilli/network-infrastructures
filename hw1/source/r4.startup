@@ -1,3 +1,0 @@
-/etc/init.d/networking restart
-#r4 Collision domain B
-ip route add default via 10.10.10.28

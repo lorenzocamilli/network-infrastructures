@@ -1,0 +1,35 @@
+/etc/init.d/networking restart
+/etc/init.d/ssh restart
+
+#Accept all SSH traffic
+iptables -A INPUT -i eth0 -p tcp --dport 22 -j ACCEPT
+iptables -A INPUT -i eth0 -j DROP
+
+
+#SSH
+# Create user and home directory
+mkdir /home/myuser
+useradd myuser -d /home/myuser
+chown myuser:myuser /home/myuser
+
+# Set password for user
+echo -e 'ilovessh\nilovessh\n' | passwd myuser
+
+# Create ssh folder and authorized_keys file
+mkdir /home/myuser/.ssh
+touch /home/myuser/.ssh/authorized_keys
+
+# Set correct permissions
+chown myuser:myuser /home/myuser/.ssh
+chmod 700 /home/myuser/.ssh
+chown myuser:myuser /home/myuser/.ssh/authorized_keys
+chmod 600 /home/myuser/.ssh/authorized_keys
+
+
+while ! [ -e /shared/id_rsa.pub ]; do
+	echo Waiting for public key...
+	sleep 1
+done
+
+cat /shared/id_rsa.pub > /home/myuser/.ssh/authorized_keys
+rm /shared/id_rsa.pub

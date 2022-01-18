@@ -1,0 +1,12 @@
+Remote forwarding, on s1: ssh -NR 9000:localhost:8000 ssh_user@160.80.103.8
+
+Local forwarding, on pc2: ssh -4NL 10000:160.80.103.8:9000 ssh_user@160.80.103.8
+
+
+
+For question n. 8:
+After opened a tunneled connection 
+than on s2: tcpdump -w /shared/capture.pcap to capture the traffic
+on s1: nc -l -p 8000, for server
+on pc2: nc localhost 10000, for the client 
+

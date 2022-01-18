@@ -1,0 +1,3 @@
+PasswordAuthentication no
+AllowTcpForwarding yes
+GatewayPorts yes

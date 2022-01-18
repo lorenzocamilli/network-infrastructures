@@ -1,8 +1,0 @@
-#r2
-/etc/init.d/networking restart
-#to reach A
-ip route add 10.30.10.0/25 via 10.10.10.24
-#to reach B
-ip route add 10.0.4.64/27 via 10.10.10.29
-#to reach C
-ip route add 10.0.3.64/27 via 10.10.10.27
